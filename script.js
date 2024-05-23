@@ -21,4 +21,7 @@ function radioGetter() {
     else {
         return "";
     }
+    async function listDisplay() {
+        
+    }
 }
