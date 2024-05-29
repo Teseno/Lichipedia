@@ -2,13 +2,16 @@ async function api() {
     let section = radioGetter();
     let output = document.getElementById("thing");
     if (section != "") {
-        let link = "https://www.dnd5eapi.co/api/" + section;
+        let link = "https://lichapi.sinij.engineer/" + section;
         let user = document.getElementById("user").value;
 
         const response = await fetch (link);
         const hold = await response.json();
-        console.log(hold.results[0].name);
-        output.innerHTML = hold.results[0].name;
+        // for (const [value] of hold.results.values()) {
+        //     console.log('${value}');
+        // }
+        console.log(Object.keys(hold.results));
+        output.innerHTML = hold.results[0];
     }else{
         output.innerHTML = "Not Found";
     }
@@ -21,7 +24,7 @@ function radioGetter() {
     else {
         return "";
     }
-    async function listDisplay() {
+    async function listDisplay(response) {
         
     }
 }
