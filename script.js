@@ -12,8 +12,9 @@ async function api() {
             if (hold.results[i].index.includes(user)) {
                 output.innerHTML += hold.results[i].index + " | ";
             }
-            if (hold.results[i].index = user) {
-                detailsGetter(section, hold.results[i].index);
+            if (hold.results[i].index == user) {
+                detailsGetter(hold.results[i].url);
+                break;
             }
         }
     }else{
@@ -29,12 +30,13 @@ function radioGetter() {
         return "";
     }
 }
-async function detailsGetter(section, item) {
-    // let link = "https://www.dnd5eapi.co/api/" + section + "/" + item;
-    // const response = await fetch (link);
-    // const hold = await response.json();
-    // output.innerHTML = "";
-    // for (const [key, value] of Object.entries(hold)) {
-    //     output.innerHTML += '${key}: ${value}';
-    // }
+async function detailsGetter(url) {
+    let output = document.getElementById("thing");
+    let link = "https://www.dnd5eapi.co" + url;
+    const response = await fetch (link);
+    const hold = await response.json();
+    output.innerHTML = "";
+    for (const [key, value] of Object.entries(hold)) {
+        output.innerHTML += key + " : " + JSON.stringify(value) + " <br>";
+    }
 }
