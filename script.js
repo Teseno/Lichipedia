@@ -1,7 +1,7 @@
 async function api() {
     let section = radioGetter();
     let output = document.getElementById("thing");
-    let user = document.getElementById("user").value;
+    let user = document.getElementById("user").value.replace(" ", "-").toLowerCase();
     if (section != "") {
         let link = "https://www.dnd5eapi.co/api/" + section + "/";
 
@@ -36,7 +36,20 @@ async function detailsGetter(url) {
     const response = await fetch (link);
     const hold = await response.json();
     output.innerHTML = "";
+    let stringedVal = "";
     for (const [key, value] of Object.entries(hold)) {
-        output.innerHTML += key + " : " + JSON.stringify(value) + " <br>";
+        if (value instanceof Object){
+            output.innerHTML += key + " : ";
+            for (const [kew, vawue] of Object.entries(value)) {
+                stringedVal = JSON.stringify(vawue);
+                stringedVal = stringedVal.replace('"','').replace('[','<br>').replace('-',' ').replace('"','').replace('{','<br>').replace(']','<br>').replace('}','<br>').replace('\n','<br>');
+                output.innerHTML += stringedVal + " ";
+            }
+            output.innerHTML += "<br><br>";
+        }else{
+            stringedVal = JSON.stringify(value);
+            stringedVal = stringedVal.replace('"','').replace('[','<br>').replace('-',' ').replace('"','').replace('{','<br>').replace(']','<br>').replace('}','<br>').replace('\n','<br>');
+            output.innerHTML += key + " : " + stringedVal + " <br>";
+        }
     }
 }
