@@ -1,10 +1,9 @@
 async function api() {
     let section = radioGetter();
     let output = document.getElementById("thing");
-    let user = document.getElementById("user").value.replace(" ", "-").toLowerCase();
+    let user = document.getElementById("user").value.replaceAll(" ", "-").toLowerCase();
     if (section != "") {
         let link = "https://www.dnd5eapi.co/api/" + section + "/";
-
         const response = await fetch (link);
         const hold = await response.json();
         output.innerHTML = "";

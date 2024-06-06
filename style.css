@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Bookinsanity;
+    src: url(files/Bookinsanity.otf);
+}
+body { 
+    background-image: url(files/parchment.jpeg);
+}
+h1 {
+    color: darkgreen;
+    text-align: center;
+    font-size: 50px;
+    font-family: Bookinsanity;
+}
+p {
+    font-family: Bookinsanity;
+    text-align: center;
+}
+input {
+    font-family: Bookinsanity;
+}
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inputBox {
+    margin: auto;
+    display: block;
+}
