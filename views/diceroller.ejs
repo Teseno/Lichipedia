@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+
+<header>
+  <%- include('./partials/header'); %>
+  <script src="js/script.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="styles/style.css">
+</header>
+
+<body>
+  <h1>Dice Roller!</h1>
+  <h2>Enter the Dice Notation, eg. 2d4, 1d20</h2>
+  <div>
+    <input type="text" id="diceInput" class="inputBox">
+    <button onclick="rolledDice()" class="inputBox">Roll</button>
+  </div>
+  <p id="pg3Output">So i stayed up till ~4 AM ish only to find out that they have CORS checking meaning that all this code and troubleshooting was useless. Example results <br>Dice_Rolled: [1, 6, 4, 6] <br> Total: 17</p>
+</body>
+    
+<footer>
+  <%- include('./partials/footer'); %>
+</footer>
+    
+</html>

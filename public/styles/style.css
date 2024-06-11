@@ -2,18 +2,23 @@
     font-family: Bookinsanity;
     src: url(files/Bookinsanity.otf);
 }
-body { 
-    background-image: url(files/parchment.jpeg);
-}
 h1 {
     color: darkgreen;
     text-align: center;
     font-size: 50px;
     font-family: Bookinsanity;
 }
+h2 {
+    color: darkblue;
+    text-align: center;
+    font-size: 25px;
+    font-family: Bookinsanity;
+}
 p {
     font-family: Bookinsanity;
     text-align: center;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 input {
     font-family: Bookinsanity;
@@ -26,4 +31,9 @@ table {
 .inputBox {
     margin: auto;
     display: block;
+}
+.nav-link {
+    display: inline-block;
+    text-align: right;
+    font-family: Bookinsanity;
 }
