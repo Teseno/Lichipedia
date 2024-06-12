@@ -7,10 +7,18 @@
 <header>
   <%- include('./partials/header'); %>
   <script src="js/script.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="files/css/style.css">
 </header>
 
 <body onload="randomPage()">
+  <style>
+    body {
+        background-image: url(files/paper.jpeg);
+        background-size: fill;
+        background-repeat: repeat;
+        background-position: fixed;
+    }
+</style>
   <h1 id="pg2Title">Random Thing!</h1>
   <p id="pg2Output"></p>
 </body>

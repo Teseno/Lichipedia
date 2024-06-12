@@ -1,4 +1,5 @@
-    async function api() {
+// import { DiceRoll } from '@dice-roller/rpg-dice-roller';
+async function api() {
     let section = radioGetter();
     let output = document.getElementById("thing");
     let user = document.getElementById("user").value.replaceAll(" ", "-").toLowerCase();
@@ -61,6 +62,7 @@ async function randomPage() {
     hold = await getLink(pickerArr[numHolder]);
     numHolder = Math.round(Math.random() * hold.results.length - 1);
     hold = await getLink(hold.results[numHolder].url);
+    console.log(hold);
     for (const [key, value] of Object.entries(hold)) {
         if (value instanceof Object) {
             output.innerHTML += key + " : ";
@@ -84,20 +86,23 @@ async function getLink (url) {
     return temp;
 }
 
-async function rolledDice () {
-    let dice = document.getElementById("diceInput").value;
-    let link = "https://rpg-dice-roller-api.djpeacher.com/api/roll/" + dice;
-    const response = await fetch(link);
-    const temp = await response.json();
-    let output = getElementById("pg3Output");
-    if (Object.key(temp).contains("error")) {
-        output.innerHTML = "Error, Please try again."
-    }
-    else {
-        for (const [key, value] of Object.entries(temp)) {
-            stringedVal = JSON.stringify(value);
-            stringedVal = stringedVal.replace('"', '').replace('[', '<br>').replace('-', ' ').replace('"', '').replace('{', '<br>').replace(']', '<br>').replace('}', '<br>').replace('\n', '<br>');
-            output.innerHTML += key + " : " + stringedVal + " <br>";
-        }
-    }
-}
+// async function rolledDice () {
+    // let output = doccument.getElementById("diceInput").value;
+    // const roll = new DiceRoll (output);
+    // output = "Raw Dice Output: " + roll.output + "<br>Roll Total: " +roll.total;
+    // let dice = document.getElementById("diceInput").value;
+    // let link = "https://rpg-dice-roller-api.djpeacher.com/api/roll/" + dice;
+    // const response = await fetch(link);
+    // const temp = await response.json();
+    // let output = getElementById("pg3Output");
+    // if (Object.key(temp).contains("error")) {
+    //     output.innerHTML = "Error, Please try again."
+    // }
+    // else {
+    //     for (const [key, value] of Object.entries(temp)) {
+    //         stringedVal = JSON.stringify(value);
+    //         stringedVal = stringedVal.replace('"', '').replace('[', '<br>').replace('-', ' ').replace('"', '').replace('{', '<br>').replace(']', '<br>').replace('}', '<br>').replace('\n', '<br>');
+    //         output.innerHTML += key + " : " + stringedVal + " <br>";
+    //     }
+    // }
+// }
