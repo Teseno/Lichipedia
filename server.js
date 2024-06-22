@@ -17,9 +17,11 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+// non functional dice roller page :(
 app.get('/diceroller', (req, res) => {
   res.render('diceroller');
 });
 
+// port 5000 on local host
 app.listen(5000);
 console.log("starting!");
